@@ -1,8 +1,10 @@
 
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+    const navigate=useNavigate();
   return (
     <nav className="navbar">
       <div className="navContainer">
@@ -28,7 +30,7 @@ function Navbar() {
           <li><Link to="/contactus">Contact Us</Link></li>
         </ul>
 
-        <button className="enrollBtn"  onClick={() => { navigate("/apply"); window.scrollTo(0,0); }}>Enroll Now</button>
+        <button className="enrollBtn"  onClick={() => { navigate("/admissions"); window.scrollTo(0,0); }}>Enroll Now</button>
       </div>
     </nav>
   );
