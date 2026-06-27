@@ -1,0 +1,43 @@
+
+<svg width="1600" height="800" viewBox="0 0 1600 800"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Flight Path 1 -->
+  <path d="M100 150 C300 50, 500 250, 700 150"
+        stroke="#94a3b8"
+        stroke-width="2"
+        stroke-dasharray="8 8"
+        fill="none"
+        opacity="0.15"/>
+
+  <!-- Flight Path 2 -->
+  <path d="M800 300 C1000 200, 1200 500, 1500 350"
+        stroke="#94a3b8"
+        stroke-width="2"
+        stroke-dasharray="8 8"
+        fill="none"
+        opacity="0.45"/>
+
+  <!-- Airplane Icons -->
+  <text x="700" y="150"
+        font-size="32"
+        opacity="0.04">✈️</text>
+
+  <text x="1200" y="350"
+        font-size="32"
+        opacity="0.04">✈️</text>
+
+  <!-- Clouds -->
+  <g opacity="0.35">
+    <ellipse cx="300" cy="100" rx="50" ry="25" fill="#cbd5e1"/>
+    <ellipse cx="340" cy="90" rx="40" ry="30" fill="#cbd5e1"/>
+    <ellipse cx="380" cy="100" rx="50" ry="25" fill="#cbd5e1"/>
+  </g>
+
+  <g opacity="0.35">
+    <ellipse cx="1100" cy="500" rx="50" ry="25" fill="#cbd5e1"/>
+    <ellipse cx="1140" cy="490" rx="40" ry="30" fill="#cbd5e1"/>
+    <ellipse cx="1180" cy="500" rx="50" ry="25" fill="#cbd5e1"/>
+  </g>
+
+</svg>
