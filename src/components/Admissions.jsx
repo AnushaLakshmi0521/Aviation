@@ -265,7 +265,7 @@ function Admissions() {
                   <span style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", display: "block", marginBottom: "12px" }}>Digital Correspondence</span>
                   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                     <div style={{ fontSize: "14px", color: "#334155" }}>
-                      <strong>Partner Admissions:</strong> <span style={{ color: "#112548" }}>admissions@collabforce.com</span>
+                      <strong>Partner Admissions:</strong> <span style={{ color: "#112548" }}>anu26446@gmail.com</span>
                     </div>
                     <div style={{ fontSize: "14px", color: "#334155" }}>
                       <strong>Institutional Platform:</strong> <span style={{ color: "#112548" }}>info@jyothycirrussaviation.com</span>
