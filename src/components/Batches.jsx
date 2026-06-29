@@ -55,23 +55,58 @@ function Batches() {
     }
   ];
 
-  // Filter batches into active and expired categories
   const activeBatches = batchesData.filter(b => !b.isExpired);
   const expiredBatches = batchesData.filter(b => b.isExpired);
 
   return (
     <div style={{ background: "#f8fafc", minHeight: "100vh", color: "#1e293b", fontFamily: "system-ui, -apple-system, sans-serif", position: "relative", overflow: "hidden" }}>
       
-      {/* BACKGROUND SVG GRAPHICS (Inspired by image_ae23e1.png) */}
-      <div style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, pointerEvents: "none", zIndex: 1, opacity: 0.85 }}>
-        <svg width="100%" height="100%" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-          <path d="M50 120 C 150 70, 300 160, 450 100" stroke="#cbd5e1" strokeWidth="2" strokeDasharray="6 6" fill="none"/>
-          <path d="M446 98 L454 100 L448 104 L447 101 Z" fill="#cbd5e1"/>
-          <path d="M160 80 C160 70, 180 65, 195 72 C205 65, 225 68, 230 78 C240 78, 245 88, 238 95 C238 100, 160 100, 160 80 Z" fill="#e2e8f0" opacity="0.7"/>
-          <path d="M550 250 C 680 180, 850 320, 1050 230" stroke="#cbd5e1" strokeWidth="2" strokeDasharray="6 6" fill="none"/>
-          <path d="M846 250 L854 253 L847 257 L846 253 Z" fill="#cbd5e1"/>
-          <path d="M720 310 C720 300, 740 295, 755 302 C765 295, 785 298, 790 308 C800 308, 805 318, 798 325 C798 330, 720 330, 720 310 Z" fill="#e2e8f0" opacity="0.7"/>
+      {/* INLINE ANIMATION KEYFRAMES */}
+      <style>{`
+        @keyframes driftSlow {
+          0% { transform: translateX(-50px); opacity: 0; }
+          10% { opacity: 0.75; }
+          90% { opacity: 0.75; }
+          100% { transform: translateX(1250px); opacity: 0; }
+        }
+        @keyframes driftFast {
+          0% { transform: translateX(-100px); opacity: 0; }
+          15% { opacity: 0.85; }
+          85% { opacity: 0.85; }
+          100% { transform: translateX(1300px); opacity: 0; }
+        }
+      `}</style>
+
+      {/* RICH ANIMATED BACKGROUND SECTOR */}
+      <div style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, pointerEvents: "none", zIndex: 1 }}>
+        
+        {/* Flight Routes & Tracks (SVG Grid) */}
+        <svg width="100%" height="100%" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style={{ opacity: 0.85 }}>
+          {/* Flight Path Route 1 */}
+          <path d="M-50 200 C 200 80, 450 300, 700 150 C 900 50, 1050 220, 1250 100" stroke="#e2e8f0" strokeWidth="2.5" strokeDasharray="8 6" fill="none"/>
+          {/* Flight Path Route 2 */}
+          <path d="M-20 550 C 250 420, 500 680, 750 500 C 950 380, 1100 550, 1280 420" stroke="#cbd5e1" strokeWidth="2" strokeDasharray="6 6" fill="none"/>
         </svg>
+
+        {/* Dynamic Cloud Vectors with Keyframe Assignments */}
+        <div style={{ position: "absolute", top: "140px", left: 0, animation: "driftSlow 45s linear infinite" }}>
+          <svg width="90" height="40" viewBox="0 0 100 45" fill="#e2e8f0">
+            <path d="M20 30 C20 20, 35 15, 50 20 C60 10, 80 15, 85 25 C95 25, 100 33, 93 40 C93 43, 20 43, 20 30 Z" />
+          </svg>
+        </div>
+
+        <div style={{ position: "absolute", top: "380px", left: 0, animation: "driftFast 30s linear infinite", animationDelay: "-10s" }}>
+          <svg width="110" height="50" viewBox="0 0 100 45" fill="#edf2f7">
+            <path d="M15 35 C15 22, 35 15, 50 22 C65 12, 85 18, 90 30 C98 30, 103 38, 96 45 C96 45, 15 45, 15 35 Z" />
+          </svg>
+        </div>
+
+        <div style={{ position: "absolute", top: "720px", left: 0, animation: "driftSlow 55s linear infinite", animationDelay: "-25s" }}>
+          <svg width="130" height="60" viewBox="0 0 100 45" fill="#e2e8f0">
+            <path d="M20 30 C20 18, 40 12, 55 20 C70 8, 90 14, 95 28 C103 28, 108 36, 101 43 C101 43, 20 43, 20 30 Z" />
+          </svg>
+        </div>
+
       </div>
 
       {/* HERO BANNER SECTION */}
@@ -85,7 +120,7 @@ function Batches() {
         </p>
       </section>
 
-      {/* BATCHES CONTAINER CONTAINER */}
+      {/* BATCHES CONTAINER */}
       <main style={{ padding: "60px 20px", maxWidth: "1100px", margin: "-30px auto 0", position: "relative", zIndex: 3 }}>
         
         {/* SECTION 1: ACTIVE / UPCOMING COHORTS */}
@@ -199,4 +234,4 @@ function Batches() {
   );
 }
 
-export default Batches;
+export default Batches;  
