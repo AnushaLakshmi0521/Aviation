@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
 // Import landing layout background images
+import w4 from "../assets/w4.jpg";
 import c1 from "../assets/c1.jpg";
 import w3 from  "../assets/w3.jpg";
 import c2 from "../assets/c2.jpg";
@@ -28,7 +29,7 @@ import c44 from "../assets/c44.mp4";
 import c55 from "../assets/c55.mp4";
 
 function CurriculumView() {
-  const heroBackgrounds = [c1, w3, c2, w1, c3,w2, c4, c5];
+  const heroBackgrounds = [w4, c1, w3, c2, w1, c3,w2, c4, c5];
 
   const trainingPhases = [
     {
