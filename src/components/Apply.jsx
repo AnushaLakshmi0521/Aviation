@@ -89,6 +89,7 @@ function Apply() {
             from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
           }
+          
           .animate-fade {
             animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
           }
@@ -103,7 +104,7 @@ function Apply() {
         `}
       </style>
 
-      {/* HERO BANNER BLOCK */}
+      {/* CLEAN HERO BANNER BLOCK */}
       <section style={{
         background: "linear-gradient(135deg, #071020 0%, #112548 100%)",
         color: "#ffffff",
@@ -132,9 +133,107 @@ function Apply() {
         </div>
       </section>
 
-      {/* FORM OVERVIEW STAGE */}
-      <section style={{ padding: "60px 20px", maxWidth: "850px", margin: "-40px auto 0", position: "relative", zIndex: 10 }}>
-        <div className="animate-fade" style={{ background: "#ffffff", borderRadius: "28px", padding: "40px", border: "1px solid #edf2f7", boxShadow: "0 20px 40px rgba(7, 16, 32, 0.04)" }}>
+      {/* FORM OVERVIEW STAGE WITH STATIC BACKGROUND DESIGN ELEMENTS */}
+      <section style={{ 
+        padding: "60px 20px 100px", 
+        maxWidth: "1050px", 
+        margin: "-40px auto 0", 
+        position: "relative",
+        zIndex: 10
+      }}>
+        
+        {/* ========================================================= */}
+        {/* STATIC BACKGROUND ARTWORK LAYERED DIRECTLY BEHIND THE FORM */}
+        {/* ========================================================= */}
+        
+        {/* Top-Left Flight Path Behind Card */}
+        <div style={{
+          position: "absolute",
+          top: "100px",
+          left: "0px",
+          pointerEvents: "none",
+          zIndex: 1,
+          display: "flex",
+          alignItems: "center",
+          gap: "8px"
+        }}>
+          <span style={{ fontSize: "24px", opacity: 0.15, transform: "rotate(40deg)" }}>✈️</span>
+          <svg width="200" height="80" viewBox="0 0 200 80" style={{ opacity: 0.12 }}>
+            <path d="M0,0 Q60,60 200,80" fill="none" stroke="#071020" strokeWidth="2" strokeDasharray="5,5" />
+          </svg>
+        </div>
+
+        {/* Top-Right Decorative Background Cloud */}
+        <div style={{
+          position: "absolute",
+          top: "40px",
+          right: "20px",
+          opacity: 0.05,
+          fontSize: "75px",
+          pointerEvents: "none",
+          zIndex: 1
+        }}>☁️</div>
+
+        {/* Center-Right Flight Path Behind Card */}
+        <div style={{
+          position: "absolute",
+          top: "45%",
+          right: "-10px",
+          pointerEvents: "none",
+          zIndex: 1,
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          flexDirection: "row-reverse"
+        }}>
+          <span style={{ fontSize: "20px", opacity: 0.12, transform: "rotate(-135deg) scaleX(-1)" }}>✈️</span>
+          <svg width="180" height="50" viewBox="0 0 180 50" style={{ opacity: 0.1 }}>
+            <path d="M180,10 Q90,40 0,0" fill="none" stroke="#071020" strokeWidth="2" strokeDasharray="5,5" />
+          </svg>
+        </div>
+
+        {/* Bottom-Left Decorative Background Cloud */}
+        <div style={{
+          position: "absolute",
+          bottom: "120px",
+          left: "10px",
+          opacity: 0.04,
+          fontSize: "85px",
+          pointerEvents: "none",
+          zIndex: 1
+        }}>☁️</div>
+
+        {/* Bottom-Right Flight Path Behind Card */}
+        <div style={{
+          position: "absolute",
+          bottom: "60px",
+          right: "40px",
+          pointerEvents: "none",
+          zIndex: 1,
+          display: "flex",
+          alignItems: "center",
+          gap: "8px"
+        }}>
+          <svg width="160" height="40" viewBox="0 0 160 40" style={{ opacity: 0.12 }}>
+            <path d="M0,40 Q80,20 160,0" fill="none" stroke="#071020" strokeWidth="2" strokeDasharray="5,5" />
+          </svg>
+          <span style={{ fontSize: "18px", opacity: 0.15, transform: "rotate(25deg)" }}>✈️</span>
+        </div>
+
+        {/* ========================================================= */}
+        {/* THE MAIN FORM CARD INTERFACE (Elevated over the graphics) */}
+        {/* ========================================================= */}
+        <div className="animate-fade" style={{ 
+          background: "#ffffff", 
+          borderRadius: "28px", 
+          padding: "40px", 
+          border: "1px solid #edf2f7", 
+          boxShadow: "0 20px 40px rgba(7, 16, 32, 0.04)",
+          position: "relative",
+          zIndex: 5, // Sits safely above graphics
+          maxWidth: "850px",
+          margin: "0 auto"
+        }}>
           
           <h3 style={{ fontSize: "24px", fontWeight: "800", color: "#071020", marginBottom: "6px" }}>Candidate Enrollment Desk</h3>
           <p style={{ color: "#64748b", fontSize: "14px", marginBottom: "28px", lineHeight: "1.5" }}>Provide complete measurements. Fields running metrics mismatch automatically trigger criteria blocks.</p>
