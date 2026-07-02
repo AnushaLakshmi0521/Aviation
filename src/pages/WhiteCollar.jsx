@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 // Import your assets here
-import bh5 from "../assets/bh5.mp4"; 
+const bh5 ="https://res.cloudinary.com/doihibg9v/video/upload/v1782969105/bh5_g0ha8p.mp4";
 import wc1 from "../assets/wc1.mp4";   
 import wc2 from "../assets/wc2.mp4";   
 import wc3 from "../assets/wc3.mp4";   
