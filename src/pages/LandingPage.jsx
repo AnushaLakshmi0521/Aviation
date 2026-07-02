@@ -18,10 +18,10 @@ import deicing from "../assets/deicing.jpg";
 import catering from "../assets/catering.jpg";
 
 // Hero Videos (Replace these paths with your actual local video files)
-import h1 from "../assets/h1.mp4";
-import h2 from "../assets/h2.mp4";
-import h3 from "../assets/h3.mp4";
-import h4 from "../assets/h4.mp4";
+const h1="https://res.cloudinary.com/doihibg9v/video/upload/v1782967443/h1_fqv3mu.mp4";
+const h2="https://res.cloudinary.com/doihibg9v/video/upload/v1782967457/h2_tgd5eg.mp4";
+const h3="https://res.cloudinary.com/doihibg9v/video/upload/v1782967457/h3_b4bix3.mp4";
+const h4="https://res.cloudinary.com/doihibg9v/video/upload/v1782967447/h4_zmyuq5.mp4";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";

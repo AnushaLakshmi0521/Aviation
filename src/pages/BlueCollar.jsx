@@ -2,10 +2,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import bh5 from "../assets/bh5.mp4";
-import b1 from "../assets/b1.mp4";
-import b2 from "../assets/b2.mp4";
-import b3 from "../assets/b3.mp4";
+const bh5 ="https://res.cloudinary.com/doihibg9v/video/upload/v1782969105/bh5_g0ha8p.mp4";
+const b1="https://res.cloudinary.com/doihibg9v/video/upload/v1782967467/b1_yb2tcf.mp4";
+const b2="https://res.cloudinary.com/doihibg9v/video/upload/v1782967457/b2_ebnfzv.mp4";
+const b3="https://res.cloudinary.com/doihibg9v/video/upload/v1782967440/b3_kqhoto.mp4";
 
 // Reusable scroll reveal wrapper that handles both downward and upward transitions
 function ScrollReveal({ children }) {

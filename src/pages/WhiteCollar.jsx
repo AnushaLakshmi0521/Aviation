@@ -3,9 +3,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 // Import your assets here
 const bh5 ="https://res.cloudinary.com/doihibg9v/video/upload/v1782969105/bh5_g0ha8p.mp4";
-import wc1 from "../assets/wc1.mp4";   
-import wc2 from "../assets/wc2.mp4";   
-import wc3 from "../assets/wc3.mp4";   
+const wc1="https://res.cloudinary.com/doihibg9v/video/upload/v1782967453/wc1_gsgq9x.mp4";  
+const wc2="https://res.cloudinary.com/doihibg9v/video/upload/v1782967477/wc2_vhmsgj.mp4";
+const wc3="https://res.cloudinary.com/doihibg9v/video/upload/v1782967456/wc3_tkti2i.mp4";
+  
 
 // Scroll wrapper that handles bidirectional reveals (entering from top OR bottom)
 function ScrollReveal({ children }) {
