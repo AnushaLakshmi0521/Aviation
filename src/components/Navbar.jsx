@@ -5,9 +5,13 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 function Navbar() {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsHovered(false);
+  };
 
   return (
     <nav style={{
@@ -39,15 +43,18 @@ function Navbar() {
             gap: 24px;
             margin: 0;
             padding: 0;
+            align-items: center; /* PERFECTLY ALIGNS ALL LINK TEXT VERTICALLY */
           }
-          .navLinks a {
+          .navLinks a, .hoverMenuTrigger {
             color: rgba(255,255,255,0.75);
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
             transition: color 0.2s ease;
+            cursor: pointer;
+            display: inline-block;
           }
-          .navLinks a:hover, .activeLink {
+          .navLinks a:hover, .hoverMenuTrigger:hover, .activeLink {
             color: #E8A830 !important;
           }
           .hamburgerBtn {
@@ -59,7 +66,23 @@ function Navbar() {
             cursor: pointer;
           }
 
-          /* SINGLE LAYER RESPONSIVE DROPDOWN (PREVENTS OVERLAPPING) */
+          /* INSTANT POPUP OPTION CARD STYLES */
+          .popupItem {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+          }
+          .popupItem:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(7, 16, 32, 0.08);
+          }
+
+          /* MOBILE RESPONSIVE ENGINE */
           @media (max-width: 1024px) {
             .hamburgerBtn {
               display: block;
@@ -84,6 +107,25 @@ function Navbar() {
               gap: 18px;
               width: 100%;
             }
+            .popupMenuBox {
+              position: static !important;
+              transform: none !important;
+              width: 90% !important;
+              margin: 10px auto 0 auto;
+              background: #0c1524 !important;
+              border: 1px solid rgba(255,255,255,0.1) !important;
+              box-shadow: none !important;
+            }
+            .popupItem:hover {
+              background: rgba(255,255,255,0.05) !important;
+              transform: none !important;
+            }
+            .popupTitle {
+              color: #ffffff !important;
+            }
+            .popupDesc {
+              color: rgba(255,255,255,0.6) !important;
+            }
           }
         `}
       </style>
@@ -104,12 +146,73 @@ function Navbar() {
           {isMobileMenuOpen ? "✕" : "☰"}
         </button>
 
-        {/* UNIFIED CONTAINER FOR LINKS & CALL TO ACTION */}
+        {/* NAVIGATION CONTAINER */}
         <div className="navMenuWrapper">
           <ul className="navLinks">
             <li><NavLink to="/" onClick={closeMobileMenu} className={({ isActive }) => isActive ? "activeLink" : ""}>Home</NavLink></li>
             <li><Link to="/aboutus" onClick={closeMobileMenu}>About Us</Link></li>
-            <li><NavLink to="/curriculum" onClick={closeMobileMenu} className={({ isActive }) => isActive ? "activeLink" : ""}>Curriculum</NavLink></li>
+            
+            {/* CLEAN INTERACTION LAYOUT - PADDING SPLIT FIXES ALIGNMENT */}
+            <li 
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              style={{ position: "relative" }} 
+            >
+              <span className="hoverMenuTrigger" onClick={() => { navigate("/curriculum"); closeMobileMenu(); }}>
+                Curriculum
+              </span>
+
+              {/* OVERLAY POPUP BOX WITH INTEGRATED HIGHER COGNITIVE SPACING ANCHOR */}
+              {isHovered && (
+                <div className="popupMenuBox" style={{
+                  position: "absolute",
+                  top: "100%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  background: "#ffffff",
+                  width: "420px",
+                  borderRadius: "16px",
+                  boxShadow: "0 20px 50px rgba(0,0,0,0.3)",
+                  border: "1px solid #edf2f7",
+                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "12px",
+                  zIndex: 1100,
+                  marginTop: "15px" // Keeps a clean gap but allows seamless hover bridging
+                }}>
+                  {/* Invisible Bridge Element so the menu doesn't disappear when cursor moves down */}
+                  <div style={{ position: "absolute", top: "-15px", left: 0, width: "100%", height: "15px" }} />
+
+                  {/* Option 1: White Collar */}
+                  <Link to="/white-collar" onClick={closeMobileMenu} className="popupItem">
+                    <span style={{ fontSize: "28px" }}>💼</span>
+                    <div>
+                      <div className="popupTitle" style={{ fontWeight: "800", color: "#071020", fontSize: "17px" }}>
+                        White Collar Careers
+                      </div>
+                      <div className="popupDesc" style={{ fontSize: "13px", color: "#64748b", marginTop: "4px", lineHeight: "1.4" }}>
+                        Explore management paths, booking desk environments, dynamic terminal logistics, and customer solutions.
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Option 2: Blue Collar */}
+                  <Link to="/blue-collar" onClick={closeMobileMenu} className="popupItem">
+                    <span style={{ fontSize: "28px" }}>🛠️</span>
+                    <div>
+                      <div className="popupTitle" style={{ fontWeight: "800", color: "#071020", fontSize: "17px" }}>
+                        Blue Collar Careers
+                      </div>
+                      <div className="popupDesc" style={{ fontSize: "13px", color: "#64748b", marginTop: "4px", lineHeight: "1.4" }}>
+                        Dive into critical operational tasks, technical airside tarmac marshalling, ramp setups, and cargo logistics.
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              )}
+            </li>
+
             <li><Link to="/batches" onClick={closeMobileMenu}>Batches</Link></li>
             <li><Link to="/fees" onClick={closeMobileMenu}>Fees</Link></li>
             <li><Link to="/placements" onClick={closeMobileMenu}>Placements</Link></li>
@@ -118,7 +221,6 @@ function Navbar() {
             <li><Link to="/contactus" onClick={closeMobileMenu}>Contact Us</Link></li>
           </ul>
 
-          {/* BUTTON IS NOW STACKED STABLY BENEATH THE LINKS IN COLD RECONCILIATION */}
           <button 
             className="enrollBtn"  
             onClick={() => { 

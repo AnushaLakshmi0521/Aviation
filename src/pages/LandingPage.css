@@ -194,138 +194,90 @@
    HERO SECTION
 ========================= */
 
+/* =========================
+   HERO SECTION (FIXED ALIGNMENT)
+========================= */
+
 .hero {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background-color: #071020; /* Fallback background */
 }
 
-/* Background Image */
-
-.heroImage {
+/* Container for the background Swiper */
+.heroVideoSliderContainer {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  z-index: 0; /* Behind content and overlay */
 }
 
-/* Dark Overlay */
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(7, 16, 32, 0.75),
-    rgba(7, 16, 32, 0.45),
-    rgba(7, 16, 32, 0.25)
-  );
+/* Make sure Swiper takes full dimensions */
+.heroVideoSwiper {
+  width: 100%;
+  height: 100%;
 }
 
-/* Hero Content */
+/* Force each slide to take up the full screen block */
+.heroVideoSwiper .swiper-slide {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
+/* Fixed Video element sizing and alignment */
+.heroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops and scales like a background-image */
+  object-position: center;
+}
+
+/* Fixed Dark Overlay position and stacking context */
+
+
+
+/* Hero Content alignment fix */
 .heroContent {
   position: relative;
-  z-index: 2;
-   padding-top:70px;
-
+  z-index: 2; /* Keeps the glass box on top of the overlay */
+  padding-top: 72px; /* Matches your navbar height */
   width: 100%;
   max-width: 1400px;
   height: 100%;
-
   margin: 0 auto;
   padding: 0 60px;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-/* Glass Box */
-
+/* Adjust glassBox alignment context */
 .glassBox {
   width: 560px;
   max-width: 100%;
-  position:relative;
-  left:-50px;
-
+  position: relative;
+  /* Removed left: -50px; as it breaks responsiveness on medium screens */
   padding: 36px 40px;
-
   background: rgba(255, 255, 255, 0.12);
-
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-
   border: 1px solid rgba(255, 255, 255, 0.22);
-
   border-radius: 24px;
-
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-
   text-align: left;
 }
 
-/* Tag */
-
-.heroTag {
-  display: inline-block;
-
-  color: #E8A830;
-
-  font-size: 14px;
-
-  font-weight: 600;
-
-  letter-spacing: 3px;
-
-  margin-bottom: 20px;
-
-  text-transform: uppercase;
+/* Mobile & Tablet Alignment Fixes */
+@media (max-width: 992px) {
+  .heroContent {
+    justify-content: center;
+    padding: 0 30px;
+  }
 }
-
-.heroOverlay{
-    background:
-    linear-gradient(
-        90deg,
-        rgba(15, 22, 35, 0.82) 0%,
-        rgba(5,12,25,.60) 40%,
-        rgba(5,12,25,.30) 70%,
-        rgba(5,12,25,.10) 100%
-    );
-}
-
-/* Heading */
-
-.glassBox h1 {
-  color: #fff;
-
-  font-size: 38px;
-
-  font-weight: 800;
-
-  line-height: 1.08;
-
-  margin-bottom: 24px;
-}
-
-.glassBox h1 span {
-  color: #E8A830;
-}
-
-/* Paragraph */
-
-.glassBox p {
-  color: rgba(255, 255, 255, 0.9);
-
-  font-size: 17px;
-
-  line-height: 1.8;
-
-  margin-bottom: 35px;
-}
-
 /* Buttons */
 
 .heroButtons {
@@ -362,7 +314,7 @@
   background: transparent;
   background:rgba(255,255,255,.08);
 
-  color: white;
+  color: rgb(29, 28, 28);
 
   border: 1px solid rgba(255, 255, 255, 0.35);
 

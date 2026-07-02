@@ -4,39 +4,48 @@ import { useNavigate } from "react-router-dom";
 import "./LandingPage.css";
 
 // Assets
-import a3 from "../assets/a3.jpg";
-import cleaner from "../assets/cleaner.jpg";
+import cabin from "../assets/cabin.jpg";
 import baggage from "../assets/baggage.jpg";
 import refueling from "../assets/refueling.jpg";
 import maintenance from "../assets/maintenance.jpg";
 import equipmentoperator from "../assets/equipmentoperator.jpg";
 import cargohandler from "../assets/cargohandler.jpg";
 import busdriver from "../assets/busdriver.jpg";
-import housekeeping from "../assets/housekeeping.jpg";
+
 import security from "../assets/security.jpg";
 import rampagent from "../assets/rampagent.jpg";
 import deicing from "../assets/deicing.jpg";
 import catering from "../assets/catering.jpg";
 
+// Hero Videos (Replace these paths with your actual local video files)
+import h1 from "../assets/h1.mp4";
+import h2 from "../assets/h2.mp4";
+import h3 from "../assets/h3.mp4";
+import h4 from "../assets/h4.mp4";
+
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/effect-fade"; // Required for cross-fade effect
 
 function LandingPage() {
   const navigate = useNavigate();
 
+  // Array containing your 4 hero videos
+  const heroVideos = [h4, h2, h3, h1];
+
   const services = [
-    { image: cleaner, title: "Aircraft Cleaner", description: "Clean aircraft cabins and prepare aircraft for the next flight." },
+   { image: cabin, title: "cabin crew", description: "Ensures passenger safety, comfort, and exceptional in-flight service. " },
     { image: baggage, title: "Baggage Handler", description: "Load and unload passenger baggage and cargo safely." },
     { image: refueling, title: "Aircraft Refueling Technician", description: "Refuel aircraft while following strict aviation safety standards." },
     { image: maintenance, title: "Aircraft Maintenance Technician", description: "Inspect, repair and maintain aircraft systems." },
     { image: equipmentoperator, title: "Ground Support Equipment Operator", description: "Operate airport vehicles like tugs and belt loaders." },
     { image: cargohandler, title: "Cargo Handler", description: "Sort and handle freight shipments for airlines." },
     { image: busdriver, title: "Airport Bus Driver", description: "Transport passengers between terminals and aircraft." },
-    { image: housekeeping, title: "Airport Housekeeping", description: "Maintain cleanliness across airport facilities." },
+
     { image: security, title: "Security Screener", description: "Screen passengers and baggage for airport security." },
     { image: rampagent, title: "Ramp Agent", description: "Support aircraft turnaround and baggage loading." },
     { image: deicing, title: "De-Icing Crew", description: "Remove ice and snow from aircraft before departure." },
@@ -47,16 +56,41 @@ function LandingPage() {
     <>
       {/* HERO */}
       <section className="hero">
-        <img src={a3} alt="Airport" className="heroImage" />
+        {/* Background Swiper with Video Cross-Fading */}
+        <div className="heroVideoSliderContainer">
+          <Swiper
+            modules={[Autoplay, EffectFade]}
+            effect={"fade"}
+            fadeEffect={{ crossFade: true }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            loop={true}
+            allowTouchMove={false} // Prevents users from manually swiping the background
+            className="heroVideoSwiper"
+          >
+            {heroVideos.map((videoSrc, index) => (
+              <SwiperSlide key={index}>
+                <video
+                  src={videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="heroVideo"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
         <div className="heroOverlay"></div>
+        
         <div className="heroContent">
           <div className="glassBox">
             <span className="heroTag">AVIATION TRAINING • HYDERABAD</span>
-            <h1>YOUR GATEWAY TO <br /><span>AIRPORT GROUND LEVEL</span><br />CAREERS</h1>
-            <p>Build your aviation career with industry-focused training, practical exposure, certification and placement assistance.</p>
+            <h1>Your Gateway to a Successful Career in Aviation.</h1>
+            <p>Launch your career in the fast-growing aviation industry with industry-oriented training, hands-on practical sessions, expert mentorship, internationally aligned curriculum, and dedicated placement assistance. Prepare for exciting opportunities at airports, airlines, and aviation service organizations.</p>
             <div className="heroButtons">
               <button className="primaryBtn" onClick={()=>{ navigate("/apply"); window.scrollTo(0,0); }}>Apply Now</button>
-              {/* Programmatic navigation routing button */}
               <button className="secondaryBtn" onClick={() => { navigate("/curriculum"); window.scrollTo(0,0); }}>
                 View Curriculum
               </button>

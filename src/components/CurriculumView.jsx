@@ -33,8 +33,8 @@ function CurriculumView() {
 
   const trainingPhases = [
     {
-      duration: "Phase 1: Aviation Core & Systems",
-      title: "Airport Functions, Codes & Global Frameworks",
+      duration: "Phase 1: Duration: Foundation Training ⭐",
+      title: "✈️ Airport Operations & Codes",
       location: "In-Class Core Lectures",
       desc: "Delivered by industry professionals from Jyothi Cirrus. Covers international regulatory standards, terminal structures, booking engine basics, and airport configurations.",
       videoAsset: c11,
@@ -85,7 +85,7 @@ function CurriculumView() {
       ]
     },
     {
-      duration: "Phase 5: Career Launchpad",
+      duration: "Phase 5: Career Preparation",
       title: "Resume Engineering, Mock Interviews & Placement",
       location: "Placement Hub / Corporate Boardroom",
       desc: "Focused finishing sessions targeted directly at converting interviews during our partner airline recruitment drives.",
@@ -172,7 +172,7 @@ function CurriculumView() {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "linear-gradient(to bottom, rgba(7, 16, 32, 0.8), rgba(7, 16, 32, 0.85))",
+         /* background: "linear-gradient(to bottom, rgba(7, 16, 32, 0.8), rgba(7, 16, 32, 0.85))",*/
           zIndex: 2
         }}></div>
         
@@ -181,10 +181,10 @@ function CurriculumView() {
             5-PHASE COMPREHENSIVE PATHWAY
           </span>
           <h2 style={{ fontSize: "48px", fontWeight: "800", color: "#ffffff", marginBottom: "20px", lineHeight: "1.2" }}>
-            Classroom to Tarmac Syllabus
+           From the Classroom to the Runway
           </h2>
           <p style={{ fontSize: "20px", color: "rgba(255, 255, 255, 0.85)", maxWidth: "800px", margin: "0 auto", lineHeight: "1.6" }}>
-            A comprehensive, field-validated blueprint combining classroom education, communication polishing, and live airside exposure for candidates.
+           A proven, step-by-step training program that combines classroom learning, professional communication skills, and real-world, hands-on experience at the airport.
           </p>
 
           <div style={{

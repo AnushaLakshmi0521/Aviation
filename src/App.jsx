@@ -13,7 +13,8 @@ import Placements from "./components/Placements";
 import Apply from "./components/Apply";
 import Admissions from "./components/Admissions";
 import ContactUs from "./components/ContactUs";
-
+import WhiteCollar from "./pages/WhiteCollar";
+import BlueCollar from "./pages/BlueCollar";
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +31,9 @@ function App() {
         <Route path="/apply" element={<Apply />} />
         <Route path="/admissions" element={<Admissions />} />
         <Route path="/contactus" element={<ContactUs />} />
+
+        <Route path="/white-collar" element={<WhiteCollar />} />
+        <Route path="/blue-collar" element={<BlueCollar />} />
       </Routes>
 
       {/* Global Footer */}
