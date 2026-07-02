@@ -2,8 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 // Import your assets here
-const bh5 =
-  "https://res-console.cloudinary.com/doihibg9v/thumbnails/transform/v1/video/upload/Zl9hdXRvLHFfYXV0bw==/v1/Ymg1X2cwaGE4cA==/template";
+import bh5 from "../assets/bh5.mp4"; 
 import wc1 from "../assets/wc1.mp4";   
 import wc2 from "../assets/wc2.mp4";   
 import wc3 from "../assets/wc3.mp4";   
@@ -19,7 +18,7 @@ function ScrollReveal({ children }) {
         // This continuously updates: true when on screen, false when off screen
         setIsVisible(entry.isIntersecting);
       },
-      { 
+      {         
         // Triggers when at least 10% of the element enters or leaves the window
         threshold: 0.1,
         // Optional: Adds a tiny margin to make the trigger feel perfectly timed
@@ -109,7 +108,7 @@ function WhiteCollar() {
       {/* 1. HERO VIDEO SECTION */}
       <div style={{ position: "relative", width: "100%", height: "65vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
         <video 
-          src={wh5} 
+          src={bh5} 
           autoPlay 
           loop 
           muted 
@@ -142,7 +141,7 @@ function WhiteCollar() {
             
             <div className="hover-card" style={{ background: "#0c1524", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)" }}>
               <div style={{ width: "100%", height: "205px", overflow: "hidden", background: "#000" }}>
-                <video src={w1} autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <video src={wc1} autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ padding: "30px" }}>
                 <h3 style={{ fontSize: "22px", fontWeight: "700", marginTop: "0", marginBottom: "12px", color: "#E8A830" }}>
@@ -156,7 +155,7 @@ function WhiteCollar() {
 
             <div className="hover-card" style={{ background: "#0c1524", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)" }}>
               <div style={{ width: "100%", height: "205px", overflow: "hidden", background: "#000" }}>
-                <video src={w2} autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <video src={wc2} autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ padding: "30px" }}>
                 <h3 style={{ fontSize: "22px", fontWeight: "700", marginTop: "0", marginBottom: "12px", color: "#E8A830" }}>
@@ -170,7 +169,7 @@ function WhiteCollar() {
 
             <div className="hover-card" style={{ background: "#0c1524", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)" }}>
               <div style={{ width: "100%", height: "205px", overflow: "hidden", background: "#000" }}>
-                <video src={w3} autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <video src={wc3} autoPlay loop muted playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ padding: "30px" }}>
                 <h3 style={{ fontSize: "22px", fontWeight: "700", marginTop: "0", marginBottom: "12px", color: "#E8A830" }}>
