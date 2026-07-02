@@ -2,10 +2,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 // Import your assets here
-import wh5 from "../assets/bh5.mp4"; 
-import w1 from "../assets/wc1.mp4";   
-import w2 from "../assets/wc2.mp4";   
-import w3 from "../assets/wc3.mp4";   
+const bh5 =
+  "https://res-console.cloudinary.com/doihibg9v/thumbnails/transform/v1/video/upload/Zl9hdXRvLHFfYXV0bw==/v1/Ymg1X2cwaGE4cA==/template";
+import wc1 from "../assets/wc1.mp4";   
+import wc2 from "../assets/wc2.mp4";   
+import wc3 from "../assets/wc3.mp4";   
 
 // Scroll wrapper that handles bidirectional reveals (entering from top OR bottom)
 function ScrollReveal({ children }) {
